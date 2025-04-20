@@ -1,0 +1,29 @@
+[Unit]
+Description=Syncthing user quadlet
+
+[Container]
+Image=docker.io/syncthing/syncthing:latest
+ContainerName=syncthing
+AutoUpdate=registry
+UserNS=keep-id
+SecurityLabelDisable=true 
+Volume=/etc/hosts:/etc/hosts:ro
+Volume=/etc/resolv.conf:/etc/resolv.conf:ro
+Volume=%h:%h:rslave
+Volume=%E/syncthing:/var/syncthing/config
+Network=host
+Environment=STGUIADDRESS=127.0.0.1:8384
+Environment=PUID=%U
+Environment=PGID=%G
+Environment=HOME=%h
+HealthCmd=curl -fkLsS -m 2 127.0.0.1:8384/rest/noauth/health | grep -o --color=never OK || exit 1
+HealthInterval=5m
+HealthRetries=3
+HealthTimeout=10s
+
+[Service]
+Restart=on-failure
+ExecStartPre=/usr/bin/mkdir -p %E/syncthing
+
+[Install]
+WantedBy=multi-user.target
