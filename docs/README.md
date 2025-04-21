@@ -7,6 +7,9 @@ such as [ublue](https://universal-blue.org/).
 - hostwatch: Systemd units to handle container restarts on certain host file changes.
 - toolboxes: Autostarting ephemeral and non-ephemeral distroboxes
 
+If there is a service you need or already run, please feel free to open an issue
+or pull request!
+
 ## Requirements
 - Requires: systemd podman
 - optional: git just
