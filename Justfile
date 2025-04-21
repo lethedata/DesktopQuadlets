@@ -3,7 +3,7 @@ hostwatch_path := "./hostwatch"
 quadlets := "syncthing|none"
 srv := 'none'
 
-deploy-service: check-service
+deploy-service: check-hostwatch
     cp {{service_path}}/{{srv}}/{{srv}}.container \
         "${XDG_CONFIG_HOME:-${HOME}/.config}"/containers/systemd/{{srv}}.container
     cp {{service_path}}/{{srv}}/{{srv}}.target \
@@ -48,4 +48,11 @@ check-service:
             echo "{{srv}} does not exist"
             exit 1
         fi
+    fi
+
+check-hostwatch: check-service
+    #!/bin/sh
+    if grep -q "quadlets-hostwatch.target" "{{service_path}}/{{srv}}/{{srv}}.container"; then
+         echo "Service uses hostwatch";
+         just --justfile {{justfile()}} deploy-hostwatch
     fi
