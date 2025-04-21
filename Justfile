@@ -25,6 +25,11 @@ deploy-meta_target:
         "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/quadlets-meta.target
     systemctl --user daemon-reload
 
+deploy-distrobox_target:
+    cp toolboxes/quadlets-distrobox.target \
+        "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/quadlets-distrobox.target
+    systemctl --user daemon-reload
+
 remove-service: check-service
     rm "${XDG_CONFIG_HOME:-${HOME}/.config}"/containers/systemd/{{srv}}.container
     rm "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/{{srv}}.target
