@@ -1,6 +1,7 @@
 [Unit]
 Description=Meta quadlet target
 Wants=quadlets-hostwatch.target
+Wants=quadlets-distrobox.target
 
 [Install]
 WantedBy=default.target
