@@ -4,16 +4,20 @@ quadlets := "syncthing|none"
 srv := 'none'
 
 deploy-service: check-service
-    cp {{service_path}}/{{srv}}/{{srv}}.container "${XDG_CONFIG_HOME:-${HOME}/.config}"/containers/systemd/{{srv}}.container
-    cp {{service_path}}/{{srv}}/{{srv}}.target "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/{{srv}}.target
+    cp {{service_path}}/{{srv}}/{{srv}}.container \
+        "${XDG_CONFIG_HOME:-${HOME}/.config}"/containers/systemd/{{srv}}.container
+    cp {{service_path}}/{{srv}}/{{srv}}.target \
+        "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/{{srv}}.target
     systemctl --user daemon-reload
 
 deploy-hostwatch:
-    cp {{hostwatch_path}}/quadlets-hostwatch* "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/
+    cp {{hostwatch_path}}/quadlets-hostwatch* \
+        "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/
     systemctl --user daemon-reload
 
 deploy-meta:
-    cp quadlets-meta.target "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/quadlets-meta.target
+    cp quadlets-meta.target \
+        "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/quadlets-meta.target
     systemctl --user daemon-reload
 
 remove-service: check-service
