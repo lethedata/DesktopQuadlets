@@ -30,5 +30,4 @@ Restart=on-failure
 ExecStartPre=/usr/bin/mkdir -p %E/syncthing
 
 [Install]
-WantedBy=quadlets-hostwatch.target
 WantedBy=syncthing.target
