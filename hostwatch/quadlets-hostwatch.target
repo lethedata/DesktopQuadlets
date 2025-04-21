@@ -1,0 +1,6 @@
+[Unit]
+Description=hostwatch quadlet target
+Upholds=quadlets-hostwatch.path
+
+[Install]
+WantedBy=default.target

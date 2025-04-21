@@ -1,0 +1,13 @@
+[Unit]
+Description=Monitor host files changes and trigger restarts
+
+[Path]
+PathChanged=/etc/hostname
+PathChanged=/etc/hosts
+PathChanged=/etc/localtime
+PathChanged=/etc/resolv.conf
+Unit=quadlets-hostwatch.service
+TriggerLimitBurst=1
+
+[Install]
+WantedBy=quadlets-hostwatch.target
