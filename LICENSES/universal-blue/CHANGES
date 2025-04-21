@@ -1,0 +1,18 @@
+# CHANGES
+
+The following modification have been made:
+
+## Files
+- bluefin-dx-cli.container
+- fedora-distrobox-quadlet.container
+- ubuntu-distrobox-quadlet.container
+```
+@@ -35,3 +35,6 @@
+ Volume=%t:%t:rslave
+ Volume=/etc/hosts:/etc/hosts:ro
+ Volume=/etc/resolv.conf:/etc/resolv.conf:ro
++
++[Install]
++WantedBy=quadlets-distrobox.target
+\ No newline at end of file
+```

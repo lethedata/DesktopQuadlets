@@ -1,0 +1,11 @@
+# NOTICE
+
+The following files have been modified from their original sources.
+All unchanged lines remain under their original copyright and license.
+See CHANGES for details.
+
+Copyright 2025 Universal Blue
+
+- bluefin-dx-cli.container
+- fedora-distrobox-quadlet.container
+- ubuntu-distrobox-quadlet.container
