@@ -5,15 +5,15 @@ srv := 'UNSET'
 
 deploy-service: check-hostwatch
     #!/bin/sh
-    if [ {{srv}} != 'none' ]; then
-        cp {{service_path}}/{{srv}}/{{srv}}.container \
-            "${XDG_CONFIG_HOME:-${HOME}/.config}"/containers/systemd/{{srv}}.container;
-        cp {{service_path}}/{{srv}}/{{srv}}.target \
-        "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/{{srv}}.target;
-        systemctl --user daemon-reload;
-    fi
-    echo "'none' is not a valid service"
-    exit 1
+    if [ {{srv}} == 'none' ]; then
+        echo "'none' is not a valid service"
+        exit 1
+    fi;
+    cp {{service_path}}/{{srv}}/{{srv}}.container \
+        "${XDG_CONFIG_HOME:-${HOME}/.config}"/containers/systemd/{{srv}}.container;
+    cp {{service_path}}/{{srv}}/{{srv}}.target \
+    "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/{{srv}}.target;
+    systemctl --user daemon-reload;
 
 deploy-hostwatch:
     cp {{hostwatch_path}}/quadlets-hostwatch* \
