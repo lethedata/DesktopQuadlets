@@ -1,14 +1,19 @@
 service_path := "./services"
 hostwatch_path := "./hostwatch"
-quadlets := "syncthing"
-srv := 'none'
+quadlets := "syncthing|none"
+srv := 'UNSET'
 
 deploy-service: check-hostwatch
-    cp {{service_path}}/{{srv}}/{{srv}}.container \
-        "${XDG_CONFIG_HOME:-${HOME}/.config}"/containers/systemd/{{srv}}.container
-    cp {{service_path}}/{{srv}}/{{srv}}.target \
-        "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/{{srv}}.target
-    systemctl --user daemon-reload
+    #!/bin/sh
+    if [ {{srv}} != 'none' ]; then
+        cp {{service_path}}/{{srv}}/{{srv}}.container \
+            "${XDG_CONFIG_HOME:-${HOME}/.config}"/containers/systemd/{{srv}}.container;
+        cp {{service_path}}/{{srv}}/{{srv}}.target \
+        "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/{{srv}}.target;
+        systemctl --user daemon-reload;
+    fi
+    echo "'none' is not a valid service"
+    exit 1
 
 deploy-hostwatch:
     cp {{hostwatch_path}}/quadlets-hostwatch* \
@@ -40,7 +45,7 @@ enable-service: check-service
 
 check-service:
     #!/bin/sh
-    if [ {{srv}} == 'none' ]; then
+    if [ {{srv}} == 'UNSET' ]; then
     echo "Please select service with: just srv=SERVICENAME RECIPE"
     exit 1
     else
