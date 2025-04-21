@@ -1,13 +1,17 @@
 [Unit]
 Description=Syncthing user quadlet
+PartOf=quadlets-hostwatch.target
 
 [Container]
 Image=docker.io/syncthing/syncthing:latest
 ContainerName=syncthing
 AutoUpdate=registry
+Label=manager=hostwatch
 UserNS=keep-id
-SecurityLabelDisable=true 
+SecurityLabelDisable=true
+Volume=/etc/hostname:/etc/hostname:ro
 Volume=/etc/hosts:/etc/hosts:ro
+Volume=/etc/localtime:/etc/localtime:ro
 Volume=/etc/resolv.conf:/etc/resolv.conf:ro
 Volume=%h:%h:rslave
 Volume=%E/syncthing:/var/syncthing/config
@@ -26,4 +30,5 @@ Restart=on-failure
 ExecStartPre=/usr/bin/mkdir -p %E/syncthing
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=quadlets-hostwatch.target
+WantedBy=syncthing.target
