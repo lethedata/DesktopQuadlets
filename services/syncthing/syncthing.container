@@ -20,7 +20,8 @@ Environment=STGUIADDRESS=127.0.0.1:8384
 Environment=PUID=%U
 Environment=PGID=%G
 Environment=HOME=%h
-HealthCmd=curl -fkLsS -m 2 127.0.0.1:8384/rest/noauth/health | grep -o --color=never OK || exit 1
+HealthCmd=curl -fkLsS -m 2 127.0.0.1:8384/rest/noauth/health | \
+    grep -o --color=never OK || exit 1
 HealthInterval=5m
 HealthRetries=3
 HealthTimeout=10s
