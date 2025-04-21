@@ -14,7 +14,7 @@ such as [ublue](https://universal-blue.org/).
 ## Service Installation
 
 * 1\. `git clone` repo
-* 2\. Install with [just](https://github.com/casey/just) or manual
+* 2\. Install with [just](https://github.com/casey/just) or manually.
 	* 2.2\. Just Install:
 		- service: `just srv=SERVICENAME`
 			- hostwatch will automatically be installed for services that utilize
