@@ -20,7 +20,7 @@ deploy-hostwatch:
         "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/
     systemctl --user daemon-reload
 
-deploy-meta:
+deploy-meta_target:
     cp quadlets-meta.target \
         "${XDG_CONFIG_HOME:-${HOME}/.config}"/systemd/user/quadlets-meta.target
     systemctl --user daemon-reload
