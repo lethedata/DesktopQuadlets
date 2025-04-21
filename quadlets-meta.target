@@ -1,0 +1,6 @@
+[Unit]
+Description=Meta quadlet target
+Wants=quadlets-hostwatch.target
+
+[Install]
+WantedBy=default.target
