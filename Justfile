@@ -1,6 +1,6 @@
 service_path := "./services"
 hostwatch_path := "./hostwatch"
-quadlets := "syncthing|none"
+quadlets := "syncthing"
 srv := 'none'
 
 deploy-service: check-hostwatch
@@ -41,7 +41,7 @@ enable-service: check-service
 check-service:
     #!/bin/sh
     if [ {{srv}} == 'none' ]; then
-    echo "Please select service with: just remove-service srv=SERVICENAME"
+    echo "Please select service with: just srv=SERVICENAME RECIPE"
     exit 1
     else
         if [[ ! "{{srv}}" == @({{quadlets}}) ]]; then
