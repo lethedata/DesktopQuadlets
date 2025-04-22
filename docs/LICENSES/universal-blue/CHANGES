@@ -7,12 +7,24 @@ The following modification have been made:
 - fedora-distrobox-quadlet.container
 - ubuntu-distrobox-quadlet.container
 ```
-@@ -35,3 +35,6 @@
+@@ -1,5 +1,7 @@
+ [Unit]
+ Description=Fedora Toolbox for your distrobox fun
++PartOf=quadlets-distrobox.target
++PartOf=fedora-distrobox-quadlet.target
+ 
+ [Container]
+ Annotation=run.oci.keep_original_groups=1
+@@ -37,4 +39,8 @@
+ Volume=/var/home/%u:/var/home/%u:rslave
  Volume=%t:%t:rslave
  Volume=/etc/hosts:/etc/hosts:ro
- Volume=/etc/resolv.conf:/etc/resolv.conf:ro
+-Volume=/etc/resolv.conf:/etc/resolv.conf:ro
+\ No newline at end of file
++Volume=/etc/resolv.conf:/etc/resolv.conf:ro
 +
 +[Install]
 +WantedBy=quadlets-distrobox.target
++WantedBy=fedora-distrobox-quadlet.target
 \ No newline at end of file
 ```

@@ -1,0 +1,5 @@
+[Unit]
+Description=bluefin-dx-cli quadlet target
+
+[Install]
+WantedBy=default.target

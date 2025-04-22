@@ -1,5 +1,7 @@
 [Unit]
 Description=Bluefin DX CLI for Wolfi development with brew
+PartOf=quadlets-distrobox.target
+PartOf=bluefin-dx-cli.target
 
 [Container]
 Annotation=run.oci.keep_original_groups=1
@@ -38,3 +40,4 @@ Volume=/etc/resolv.conf:/etc/resolv.conf:ro
 
 [Install]
 WantedBy=quadlets-distrobox.target
+WantedBy=bluefin-dx-cli.target

@@ -1,0 +1,5 @@
+[Unit]
+Description=ubuntu-distrobox-quadlet quadlet target
+
+[Install]
+WantedBy=default.target

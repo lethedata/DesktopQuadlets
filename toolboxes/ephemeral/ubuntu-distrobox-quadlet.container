@@ -1,5 +1,7 @@
 [Unit]
 Description=Ubuntu Toolbox for your distrobox fun
+PartOf=quadlets-distrobox.target
+PartOf=ubuntu-distrobox-quadlet.target
 
 [Container]
 Annotation=run.oci.keep_original_groups=1
@@ -41,3 +43,4 @@ Volume=/etc/resolv.conf:/etc/resolv.conf:ro
 
 [Install]
 WantedBy=quadlets-distrobox.target
+WantedBy=ubuntu-distrobox-quadlet.target
