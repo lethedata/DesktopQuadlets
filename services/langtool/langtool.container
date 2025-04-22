@@ -1,0 +1,18 @@
+[Unit]
+Description=LanguageTool user quadlet
+PartOf=quadlets-meta.target
+PartOf=langtool.target
+
+[Container]
+Image=docker.io/erikvl87/languagetool:latest
+ContainerName=languagetool
+AutoUpdate=registry
+Label=manager=meta
+PublishPort=127.0.0.1:8010:8010
+
+[Service]
+Restart=on-failure
+
+[Install]
+WantedBy=quadlets-meta.target
+WantedBy=langtool.target

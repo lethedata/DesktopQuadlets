@@ -1,6 +1,6 @@
 service_path := "./services"
 hostwatch_path := "./hostwatch"
-quadlets := "syncthing|none"
+quadlets := "syncthing|langtool|none"
 srv := 'UNSET'
 
 deploy-service: check-hostwatch
