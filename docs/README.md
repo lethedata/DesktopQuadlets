@@ -29,6 +29,7 @@ or pull request!
 		- Run `systemctl --user daemon-reload`
 * 3\. Enable and Start desired target with `systemctl enable --now TARGETNAME.target`
 	- Avoid enabling lower level targets when higher level targets are enabled.
+	- Use `systemctl --user list-dependencies quadlets-meta.target` to see the hierarchy.
 
 
 # Unit Logic
