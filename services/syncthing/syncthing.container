@@ -1,6 +1,7 @@
 [Unit]
 Description=Syncthing user quadlet
 PartOf=quadlets-hostwatch.target
+PartOf=syncthing.target
 
 [Container]
 Image=docker.io/syncthing/syncthing:latest
@@ -31,4 +32,5 @@ Restart=on-failure
 ExecStartPre=/usr/bin/mkdir -p %E/syncthing
 
 [Install]
+WantedBy=quadlets-hostwatch.target
 WantedBy=syncthing.target

@@ -4,6 +4,3 @@ Description=Restart hostwatch quadlets
 [Service]
 Type=oneshot
 ExecStart=systemctl --user try-restart quadlets-hostwatch.target
-
-[Install]
-WantedBy=default.target

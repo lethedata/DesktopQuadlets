@@ -8,6 +8,3 @@ PathChanged=/etc/localtime
 PathChanged=/etc/resolv.conf
 Unit=quadlets-hostwatch.service
 TriggerLimitBurst=1
-
-[Install]
-WantedBy=quadlets-hostwatch.target

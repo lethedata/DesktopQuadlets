@@ -1,6 +1,8 @@
 [Unit]
 Description=hostwatch quadlet target
+PartOf=quadlets-meta.target
 Upholds=quadlets-hostwatch.path
+PropagatesStopTo=quadlets-hostwatch.path
 
 [Install]
 WantedBy=default.target
