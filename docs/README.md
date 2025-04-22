@@ -33,4 +33,4 @@ or pull request!
 
 
 # Unit Logic
-![systemd service diagram](./assets/diagram-unit_logic.svg)
+![systemd units logic diagram](./assets/diagram-unit_logic.svg)
